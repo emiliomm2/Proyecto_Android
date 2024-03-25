@@ -14,6 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Object view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,14 +27,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        TextView go_to_register = (TextView) findViewById(R.id.go_to_register);
-
-        go_to_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent registro = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(registro);
-            }
-        });
+    }
+    public void registro (View view){
+        startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+        finish();
     }
 }

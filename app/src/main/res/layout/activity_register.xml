@@ -12,6 +12,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:srcCompat="@mipmap/ic_logo_foreground" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,6 +37,7 @@
             android:layout_marginTop="8dp"/>
 
         <EditText
+            android:id="@+id/nombre_completo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Nombre"
@@ -43,6 +50,7 @@
             android:padding="15dp"/>
 
         <EditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Correo electrónico"
@@ -67,6 +75,7 @@
             android:padding="15dp"/>
 
         <EditText
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Contraseña"
@@ -91,6 +100,7 @@
             android:padding="15dp"/>
 
         <Button
+            android:id="@+id/btnRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -103,11 +113,13 @@
 
 
         <TextView
+            android:id="@+id/go_to_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="10dp"
-            android:text="¿Ya tienes una cuenta?" />
+            android:text="¿Ya tienes una cuenta?"
+            android:onClick="login"/>
 
 
     </LinearLayout>
