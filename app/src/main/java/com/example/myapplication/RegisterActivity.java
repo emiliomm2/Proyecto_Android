@@ -33,7 +33,7 @@ import java.net.URL;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText t_nombre_completo, t_email, t_password;
+    EditText t_nombre_completo, t_email, t_password, t_repite_email, t_repite_password;
     Button btnRegistro;
 
     @Override
@@ -50,6 +50,8 @@ public class RegisterActivity extends AppCompatActivity {
         t_nombre_completo = (EditText) findViewById(R.id.nombre_completo);
         t_email = (EditText) findViewById(R.id.email);
         t_password = (EditText) findViewById(R.id.password);
+        t_repite_email = (EditText) findViewById(R.id.repite_email);
+        t_repite_password = (EditText) findViewById(R.id.repite_password);
         btnRegistro = (Button) findViewById(R.id.btnRegistro);
 
         btnRegistro.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +65,8 @@ public class RegisterActivity extends AppCompatActivity {
         final String nombre_completo = t_nombre_completo.getText().toString().trim();
         final String email = t_email.getText().toString().trim();
         final String password = t_password.getText().toString().trim();
+        final String repite_email = t_repite_email.getText().toString().trim();
+        final String repite_password = t_repite_password.getText().toString().trim();
         final ProgressDialog progressDialog = new ProgressDialog(this);
 
 
@@ -72,6 +76,12 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (email.isEmpty()){
             t_email.setError("Complete los campos");
             return;
+        } else if (!repite_email.equalsIgnoreCase(email)){
+            t_repite_email.setError("Los emails tienen que coincidir");
+        } else if (password.length()<8){
+            t_password.setError("La contraseña debe tener entre 8 y 16 caracteres");
+        } else if (!repite_password.equalsIgnoreCase(password)){
+            t_repite_password.setError("Las contraseñas deben ser iguales");
         }
 
         else {

@@ -72,6 +72,7 @@
             android:layout_marginTop="15dp"
             android:backgroundTint="@color/btn_color"
             android:text="Iniciar sesión"
+            android:onClick="login"
             android:background="@drawable/rounded_button"/>
 
 

@@ -63,6 +63,7 @@
             android:padding="15dp"/>
 
         <EditText
+            android:id="@+id/repite_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Repite tu correo electrónico"
@@ -88,6 +89,7 @@
             android:padding="15dp"/>
 
         <EditText
+            android:id="@+id/repite_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Repite tu contraseña"
