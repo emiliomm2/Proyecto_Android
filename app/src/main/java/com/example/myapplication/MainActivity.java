@@ -96,7 +96,9 @@ public class MainActivity extends AppCompatActivity {
             };
             RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
             requestQueue.add(request);
+
         }
+
     }
     public void registro (View view){
         startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
