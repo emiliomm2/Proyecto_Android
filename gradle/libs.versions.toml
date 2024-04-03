@@ -8,6 +8,11 @@ material = "1.11.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
 volley = "1.2.1"
+design = "28.0.0"
+viewbinding = "8.5.0-alpha03"
+drawerlayout = "28.0.0"
+supportV4 = "28.0.0"
+widget = "1.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -18,6 +23,11 @@ material = { group = "com.google.android.material", name = "material", version.r
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
+design = { group = "com.android.support", name = "design", version.ref = "design" }
+viewbinding = { group = "com.android.databinding", name = "viewbinding", version.ref = "viewbinding" }
+drawerlayout = { group = "com.android.support", name = "drawerlayout", version.ref = "drawerlayout" }
+support-v4 = { group = "com.android.support", name = "support-v4", version.ref = "supportV4" }
+widget = { group = "com.github.snowdream.android", name = "widget", version.ref = "widget" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

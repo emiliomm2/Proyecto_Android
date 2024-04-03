@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             email = t_email.getText().toString().trim();
             password = t_password.getText().toString().trim();
 
-            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.149/proyecto_final/php/login_be_android.php", new Response.Listener<String>() {
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.145/proyecto_final/php/login_be_android.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     progressDialog.dismiss();

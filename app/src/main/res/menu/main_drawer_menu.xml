@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/inicio"
+            android:title="Inicio"/>
+        <item
+            android:id="@+id/nav_aprender"
+            android:icon="@drawable/aprender"
+            android:title="Aprender"/>
+        <item
+            android:id="@+id/nav_actividades"
+            android:icon="@drawable/actividades"
+            android:title="Actividades"/>
+        <item
+            android:id="@+id/nav_notas"
+            android:icon="@drawable/notas"
+            android:title="Notas"/>
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/perfil"
+            android:title="Perfil"/>
+        <item
+            android:id="@+id/nav_cerrar_sesion"
+            android:icon="@drawable/cerrar_sesion"
+            android:title="Cerrar Sesión"/>
+    </group>
+</menu>

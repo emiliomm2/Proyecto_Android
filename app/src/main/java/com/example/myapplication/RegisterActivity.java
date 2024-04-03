@@ -86,7 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         else {
             progressDialog.show();
-            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.149/proyecto_final/php/registro_be_android.php", new Response.Listener<String>() {
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.145/proyecto_final/php/registro_be_android.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if (response.equalsIgnoreCase("registro completado")) {
