@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//       EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Completa la contraseña", Toast.LENGTH_SHORT).show();
         } else {
             final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Espere");
+            progressDialog.setMessage("Cargando");
             progressDialog.show();
 
             email = t_email.getText().toString().trim();
