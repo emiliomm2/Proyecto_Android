@@ -1,21 +1,21 @@
 package com.example.myapplication;
 
-import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.VideoView;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.databinding.ActivityAprenderBinding;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.myapplication.databinding.ActivityPlataformaBinding;
 
 public class AprenderActivity extends DrawerBaseActivity {
 
     ActivityAprenderBinding activityAprenderBinding;
-    List<Video> listaVideos;
-    RecyclerView.LayoutManager lm;
+    private Button btnVideo1, btnVideo2, btnVideo3;
+    private VideoView videoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,22 +23,43 @@ public class AprenderActivity extends DrawerBaseActivity {
         activityAprenderBinding = activityAprenderBinding.inflate(getLayoutInflater());
         setContentView(activityAprenderBinding.getRoot());
 
-        listaVideos = obtenerListaVideos();
+        // Inicializar los botones y el VideoView
+        btnVideo1 = findViewById(R.id.btnVideo1);
+        btnVideo2 = findViewById(R.id.btnVideo2);
+        btnVideo3 = findViewById(R.id.btnVideo3);
+        videoView = findViewById(R.id.videoView);
 
-        VideoAdapter adapter = new VideoAdapter(this, listaVideos);
-        activityAprenderBinding.rvVideos.setAdapter(adapter);
-        lm = new LinearLayoutManager(this);
-        activityAprenderBinding.rvVideos.setLayoutManager(lm);
+        // Configurar los listeners para los botones
+        btnVideo1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reproducirVideo(R.raw.video1);
+            }
+        });
 
+        btnVideo2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reproducirVideo(R.raw.video2);
+            }
+        });
+
+        btnVideo3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reproducirVideo(R.raw.video3);
+            }
+        });
     }
 
-    private List<Video> obtenerListaVideos() {
-        List<Video> lista = new ArrayList<>();
-        lista.add(new Video("JavaScript", "android.resource://"+getPackageName()+"/raw/video1.mp4"));
-        lista.add(new Video("HTML5", "android.resource://"+getPackageName()+"/raw/video2.mp4"));
-        lista.add(new Video("CSS3", "android.resource://"+getPackageName()+"/raw/video3.mp4"));
-        return lista;
-    }
+    private void reproducirVideo(int videoRawId) {
+        // Obtener la URI del vídeo seleccionado
+        Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + videoRawId);
 
+        // Configurar el VideoView para reproducir el vídeo seleccionado
+        videoView.setVideoURI(videoUri);
+        videoView.start();
+    }
 
 }
+
