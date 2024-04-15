@@ -1,11 +1,14 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,24 +38,32 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
         Video video = videoList.get(position);
         holder.tvTitulo.setText(video.getTitulo());
-
-
-        Glide.with(context).load(video.getMiniatura()).into(holder.ivVideo);
+        holder.videoView.setVideoURI(Uri.parse(video.getVideoUri()));
     }
 
     @Override
     public int getItemCount() {
         return videoList.size();
     }
+    
 
     public static class VideoViewHolder extends RecyclerView.ViewHolder {
-        ImageView ivVideo;
+        VideoView videoView;
         TextView tvTitulo;
 
         public VideoViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivVideo = itemView.findViewById(R.id.ivVideo);
+            videoView = itemView.findViewById(R.id.videoView);
             tvTitulo = itemView.findViewById(R.id.tvTitulo);
+
+
+            videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mp.setLooping(false);
+                    mp.pause();
+                }
+            });
         }
     }
 }

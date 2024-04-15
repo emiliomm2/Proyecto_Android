@@ -1,19 +1,28 @@
 package com.example.myapplication;
 
 public class Video {
-    private int miniatura;
     private String titulo;
+    private String videoUri; // La URI del video
 
-    public Video(int miniatura, String titulo) {
-        this.miniatura = miniatura;
+    public Video(String titulo, String videoUri) {
         this.titulo = titulo;
-    }
-
-    public int getMiniatura() {
-        return miniatura;
+        this.videoUri = videoUri;
     }
 
     public String getTitulo() {
         return titulo;
     }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getVideoUri() {
+        return videoUri;
+    }
+
+    public void setVideoUri(String videoUri) {
+        this.videoUri = videoUri;
+    }
 }
+

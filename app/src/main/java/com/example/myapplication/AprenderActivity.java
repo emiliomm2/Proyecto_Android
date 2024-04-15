@@ -22,8 +22,8 @@ public class AprenderActivity extends DrawerBaseActivity {
         super.onCreate(savedInstanceState);
         activityAprenderBinding = activityAprenderBinding.inflate(getLayoutInflater());
         setContentView(activityAprenderBinding.getRoot());
-        listaVideos = obtenerListaVideos();
 
+        listaVideos = obtenerListaVideos();
 
         VideoAdapter adapter = new VideoAdapter(this, listaVideos);
         activityAprenderBinding.rvVideos.setAdapter(adapter);
@@ -34,10 +34,11 @@ public class AprenderActivity extends DrawerBaseActivity {
 
     private List<Video> obtenerListaVideos() {
         List<Video> lista = new ArrayList<>();
-        lista.add(new Video(R.drawable.js, "JavaScript"));
-        lista.add(new Video(R.drawable.html, "HTML5"));
-        lista.add(new Video(R.drawable.css, "CSS3"));
+        lista.add(new Video("JavaScript", "android.resource://"+getPackageName()+"/raw/video1.mp4"));
+        lista.add(new Video("HTML5", "android.resource://"+getPackageName()+"/raw/video2.mp4"));
+        lista.add(new Video("CSS3", "android.resource://"+getPackageName()+"/raw/video3.mp4"));
         return lista;
     }
+
 
 }
