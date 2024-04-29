@@ -32,9 +32,6 @@ public class PerfilActivity extends DrawerBaseActivity {
         imageViewPerfil = findViewById(R.id.imageViewPerfil);
         textViewFrase = findViewById(R.id.textViewFrase);
 
-        // Cargar datos del usuario
-        cargarDatosUsuario();
-
         imageViewPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,19 +40,7 @@ public class PerfilActivity extends DrawerBaseActivity {
         });
     }
 
-    private void cargarDatosUsuario() {
-        // Obtener el correo electrónico guardado en las preferencias compartidas
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-
-        int photoId = prefs.getInt(PREF_PHOTO, R.drawable.planta);
-
-        imageViewPerfil.setImageResource(photoId);
-
-        String frase = "Cuando las cosas se pongan difíciles, recuerda que el crecimiento ocurre fuera de la zona de confort.";
-        textViewFrase.setText(frase);
-        textViewFrase.setTypeface(textViewFrase.getTypeface(), Typeface.ITALIC);
-    }
-
+    //Selección de la imagen de perfil entre Hombre, Mujer y Planta
     private void mostrarDialogoSeleccionImagen() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Seleccionar imagen de perfil");
@@ -64,13 +49,13 @@ public class PerfilActivity extends DrawerBaseActivity {
             public void onClick(DialogInterface dialog, int which) {
                 int photoId;
                 switch (which) {
-                    case 0: // Planta
+                    case 0: //Planta
                         photoId = R.drawable.planta;
                         break;
-                    case 1: // Hombre
+                    case 1: //Hombre
                         photoId = R.drawable.hombre;
                         break;
-                    case 2: // Mujer
+                    case 2: //Mujer
                         photoId = R.drawable.mujer;
                         break;
                     default:
@@ -82,7 +67,7 @@ public class PerfilActivity extends DrawerBaseActivity {
                 editor.putInt(PREF_PHOTO, photoId);
                 editor.apply();
 
-                // Actualizar la imagen del perfil
+                //Actualiza la imagen del perfil
                 imageViewPerfil.setImageResource(photoId);
             }
         });

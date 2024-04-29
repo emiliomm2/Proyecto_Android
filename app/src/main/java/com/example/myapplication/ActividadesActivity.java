@@ -23,7 +23,7 @@ import java.io.OutputStream;
 public class ActividadesActivity extends DrawerBaseActivity {
 
     ActivityActividadesBinding activityActividadesBinding;
-    private static final String PDF_DIRECTORY = "pdf_files";
+    private static final String PDF_DIRECTORY = "pdf_files";//Carpeta donde se encuentran las actividades
     private static final int REQUEST_CODE_OPEN_PDF = 1;
 
     @Override
@@ -33,17 +33,15 @@ public class ActividadesActivity extends DrawerBaseActivity {
         setContentView(activityActividadesBinding.getRoot());
 
 
-        // Configurar los botones de actividad
+        //Botones de las actividades
         configureActivityButton(R.id.btnActividad1, "actividad1.pdf");
         configureActivityButton(R.id.btnActividad2, "actividad2.pdf");
 
-        // Configurar el botón de subir actividad
+        //Boton de subida
         findViewById(R.id.btnSubirActividad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para subir la actividad
-                // Puedes implementar la lógica necesaria para subir la actividad aquí
-                // Por ejemplo, podrías llamar a un método para subir la actividad
+                //Lógica para subir la actividad
                 uploadPDF();
             }
         });
@@ -65,7 +63,7 @@ public class ActividadesActivity extends DrawerBaseActivity {
         try {
             inputStream = assetManager.open(PDF_DIRECTORY + File.separator + fileName);
 
-            // Crear el archivo destino en el directorio de descargas
+            //Creación del archivo destino en el directorio de descargas
             File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             if (!downloadsDir.exists()) {
                 // Si la carpeta de descargas no existe, intenta crearla
@@ -77,7 +75,7 @@ public class ActividadesActivity extends DrawerBaseActivity {
             }
             File outputFile = new File(downloadsDir, fileName);
 
-            // Copiar el contenido del archivo PDF al archivo de destino
+            //Copia en el buffer
             outputStream = new FileOutputStream(outputFile);
             byte[] buffer = new byte[1024];
             int length;
@@ -85,14 +83,14 @@ public class ActividadesActivity extends DrawerBaseActivity {
                 outputStream.write(buffer, 0, length);
             }
 
-            // Notificar al usuario que la descarga se ha completado
+            //Notificacion al usuario que la descarga se ha completado
             Toast.makeText(this, "PDF descargado correctamente: " + fileName, Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
-            // Manejar cualquier error que pueda ocurrir durante la descarga
+            //Manejo de cualquier error que pueda ocurrir durante la descarga
             Toast.makeText(this, "Error al descargar el PDF", Toast.LENGTH_SHORT).show();
         } finally {
-            // Cerrar los flujos de entrada y salida
+            //Cierre de flujos de entrada y salida
             try {
                 if (inputStream != null) {
                     inputStream.close();
@@ -107,6 +105,7 @@ public class ActividadesActivity extends DrawerBaseActivity {
     }
 
     public void uploadPDF() {
+        //Subida de las actividades en PDF
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.setType("application/pdf");
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -117,8 +116,7 @@ public class ActividadesActivity extends DrawerBaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_OPEN_PDF && resultCode == RESULT_OK && data != null) {
-            // Aquí puedes manejar el archivo PDF seleccionado
-            // Por ejemplo, obtén la URI del archivo seleccionado
+            //Manejo del archivo PDF seleccionado
             Uri selectedFileUri = data.getData();
             if (selectedFileUri != null) {
                 Toast.makeText(this, "Archivo PDF seleccionado: " + selectedFileUri.toString(), Toast.LENGTH_SHORT).show();

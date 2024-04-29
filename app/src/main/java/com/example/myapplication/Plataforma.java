@@ -27,11 +27,11 @@ public class Plataforma extends DrawerBaseActivity {
         setContentView(activityPlataformaBinding.getRoot());
 
         videoView = findViewById(R.id.videoView);
-
+        //Video de presentación de la plataforma
         String path="android.resource://"+getPackageName()+"/"+R.raw.video_introduccion;
         videoView.setVideoURI(Uri.parse(path));
         videoView.start();
-
+        //Controles del vídeo
         if (this.mediaController == null){
             this.mediaController = new MediaController(Plataforma.this);
 
@@ -40,6 +40,7 @@ public class Plataforma extends DrawerBaseActivity {
             this.videoView.setMediaController(mediaController);
         }
 
+        //Reinicio del vídeo al cambiar de pantalla
         this.videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {

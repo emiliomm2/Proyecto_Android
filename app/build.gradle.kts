@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-
+    //Incorporación de las librerias
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)

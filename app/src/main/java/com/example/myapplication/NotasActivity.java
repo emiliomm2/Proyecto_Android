@@ -34,30 +34,30 @@ public class NotasActivity extends DrawerBaseActivity {
         });
     }
 
+    //Descarga del apartado de notas
     private void descargarNota() {
         String textoNota = editTextNota.getText().toString();
         if (!textoNota.isEmpty()) {
             try {
-                // Crear un archivo de texto en el directorio de descargas
+                //Creacion de un archivo de texto en el directorio de descargas
                 File dirDescargas = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
                 File archivoNota = new File(dirDescargas, "nota.txt");
 
-                // Escribir el texto en el archivo
+                //Escritura del texto en el archivo
                 FileOutputStream fos = new FileOutputStream(archivoNota);
                 fos.write(textoNota.getBytes());
                 fos.close();
 
                 editTextNota.setText("");
 
-                // Mostrar mensaje de éxito
                 Toast.makeText(this, "Nota descargada correctamente", Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
                 e.printStackTrace();
-                // Mostrar mensaje de error si ocurre un problema al guardar la nota
+                //Mensaje de error si ocurre un problema al guardar la nota
                 Toast.makeText(this, "Error al descargar la nota", Toast.LENGTH_SHORT).show();
             }
         } else {
-            // Mostrar mensaje si el texto de la nota está vacío
+            //Mensaje de error si el texto de la nota está vacío
             Toast.makeText(this, "La nota está vacía", Toast.LENGTH_SHORT).show();
         }
     }

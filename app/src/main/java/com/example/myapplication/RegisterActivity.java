@@ -31,6 +31,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+//Registro en la plataforma pasando por el php de registro de Android
 public class RegisterActivity extends AppCompatActivity {
 
     EditText t_nombre_completo, t_email, t_password, t_repite_email, t_repite_password;
@@ -39,14 +40,13 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        //Entrada de los datos
         t_nombre_completo = (EditText) findViewById(R.id.nombre_completo);
         t_email = (EditText) findViewById(R.id.email);
         t_password = (EditText) findViewById(R.id.password);
@@ -61,6 +61,8 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
+    //Pasar a texto y quitar los espacios en blanco
     public void insertarDatos() {
         final String nombre_completo = t_nombre_completo.getText().toString().trim();
         final String email = t_email.getText().toString().trim();
@@ -86,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         else {
             progressDialog.show();
-            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.145/proyecto_final/php/registro_be_android.php", new Response.Listener<String>() {
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.146/proyecto_final/php/registro_be_android.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if (response.equalsIgnoreCase("registro completado")) {

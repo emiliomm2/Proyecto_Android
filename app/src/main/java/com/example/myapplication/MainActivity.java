@@ -27,7 +27,7 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//Activity del inicio para iniciar sesión
 public class MainActivity extends AppCompatActivity {
 
     EditText t_email, t_password;
@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
             email = t_email.getText().toString().trim();
             password = t_password.getText().toString().trim();
 
-            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.145/proyecto_final/php/login_be_android.php", new Response.Listener<String>() {
+            //Comprobación con la base de datos a través del php de Android
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.146/proyecto_final/php/login_be_android.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     progressDialog.dismiss();
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    //Acceso al registro
     public void registro (View view){
         startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
         finish();

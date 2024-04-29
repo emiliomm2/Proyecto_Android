@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <!--Permisos de internet y de acceso al almacenamiento-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -18,16 +18,7 @@
         android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        tools:targetApi="31">
-        <activity
-            android:name=".Video3"
-            android:exported="false" />
-        <activity
-            android:name=".Video2"
-            android:exported="false" />
-        <activity
-            android:name=".Video1"
-            android:exported="false" />
+        tools:targetApi="31"><!--Cambio del logo de la aplicación y del nombre-->
         <activity
             android:name=".PerfilActivity"
             android:exported="false" />

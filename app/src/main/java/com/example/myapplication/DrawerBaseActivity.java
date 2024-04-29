@@ -27,8 +27,8 @@ import com.google.android.material.navigation.NavigationView;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
-    TextView usernameTV;
 
+    //Controlación del menu
     @Override
     public void setContentView(View view) {
         drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_drawer_base, null);
@@ -54,6 +54,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         return false;
     }
 
+    //Manejo de las acciones de navegación de las distintas secciones
     private void manejarAccionDeNavegacion (int itemId){
         if (itemId == R.id.nav_inicio){
             iniciarNuevaActividad(Plataforma.class);
@@ -74,6 +75,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         overridePendingTransition(0,0);
     }
 
+    //Cierre de sesión
     private void logout(){
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Cerrando sesión");

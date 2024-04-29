@@ -2,13 +2,13 @@ package com.example.myapplication;
 
 public class Video {
     private String titulo;
-    private String videoUri; // La URI del video
+    private String videoUri;
 
     public Video(String titulo, String videoUri) {
         this.titulo = titulo;
         this.videoUri = videoUri;
     }
-
+    //Getter y Setter de las variables de videos
     public String getTitulo() {
         return titulo;
     }
